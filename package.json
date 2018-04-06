@@ -11,14 +11,16 @@
     "poi": "~9.6.13",
     "react": "~16.3.1",
     "react-dom": "~16.3.1",
-    "boardgame.io": "~0.21.5"
+    "boardgame.io": "~0.21.5",
+    "prop-types": "~15.6.1"
   },
   "devDependencies": {
     "eslint-config-airbnb": "~16.1.0",
     "eslint-plugin-import": "~2.10.0",
     "eslint-plugin-jsx-a11y": "~6.0.3",
     "eslint-plugin-react": "~7.7.0",
-    "poi-preset-react": "~9.2.1"
+    "poi-preset-react": "~9.2.1",
+    "eslint": "~4.19.1"
   },
   "scripts": {
     "start": "./node_modules/poi/bin/cli.js",
