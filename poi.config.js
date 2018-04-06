@@ -1,6 +1,8 @@
 module.exports = (options, req) =>({
   entry: './src/index.js',
-  jsx: 'react',
+  presets: [
+    require('poi-preset-react')()
+  ],
   // Other options
 })
 
