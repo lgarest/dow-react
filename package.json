@@ -1,0 +1,10 @@
+{
+  "name": "dow-react",
+  "version": "0.0.1",
+  "description": "Dead Of Winter boardgame in your browser!",
+  "main": "index.js",
+  "repository": "https://github.com/lgarest/dow-react",
+  "author": "Luis Garcia Estrades",
+  "license": "MIT",
+  "private": false
+}
