@@ -1,31 +1,19 @@
 /* 3rd party imports */
-import React, { Component } from 'react';
+import { Client } from 'boardgame.io/react';
+import { Game } from 'boardgame.io/core';
 
-/* relative imports */
-import Button from '../button';
+const MainGame = Game({
+  setup: () => ({ cells: Array(9).fill(null) }),
 
-const add1 = () => console.log('hey 1');
-const add2 = () => console.log('hey 2');
+  moves: {
+    clickCell(G, ctx, id) {
+      let cells = [...G.cells]; // don't mutate original state.
+      cells[id] = ctx.currentPlayer;
+      return { ...G, cells }; // don't mutate original state.
+    },
+  },
+});
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: ['item1'],
-    };
-  }
+const App = Client({ game: MainGame });
 
-  render() {
-    return (
-      <div>
-      <h1>React example</h1>
-      <input type="text" />
-      <Button action={add1} red>doSomething</Button>
-      <Button action={add2}>doSomethingElse</Button>
-      <section>
-      </section>
-      { this.state.items }
-      </div>
-      );
-  }
-}
+export default App;
