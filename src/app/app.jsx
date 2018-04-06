@@ -2,6 +2,9 @@
 import { Client } from 'boardgame.io/react';
 import { Game } from 'boardgame.io/core';
 
+/* Relative imports */
+import Board from '../components/board';
+
 const MainGame = Game({
   setup: () => ({ cells: Array(9).fill(null) }),
 
@@ -14,6 +17,9 @@ const MainGame = Game({
   },
 });
 
-const App = Client({ game: MainGame });
+const App = Client({
+  game: MainGame,
+  board: Board,
+});
 
 export default App;
