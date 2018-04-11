@@ -6,7 +6,18 @@ import { Game } from 'boardgame.io/core';
 import Board from '../components/board';
 
 const MainGame = Game({
-  setup: () => ({ cells: Array(9).fill(null) }),
+  setup: () => ({
+    round: 0,
+    morale: 0,
+    goal: {
+      name: 'LEAVE IT ALL',
+      victoryCondition: () => undefined,
+    },
+    crisis: {},
+    garbage: {},
+    colony: {},
+    cells: Array(9).fill(null)
+  }),
 
   moves: {
     clickCell(G, ctx, id) {
