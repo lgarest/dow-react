@@ -1,4 +1,6 @@
 import React from 'react';
+import Colony from './colony';
+import Tile from './location-tile';
 
 /* eslint-disable */
 
@@ -15,26 +17,31 @@ const Entrance = props => (
 );
 
 const Location = props => (
-  <div onClick={props.click} something={console.log('rops', props)}>
-    <span>{props.name} </span>
+  <Tile
+    name={props.name}
+    onClick={props.click}
+    something={console.log('props', props)}
+  >
     <span>Players: {props.players} </span>
     <span>Max players: {props.maxPlayers} </span>
     <p>Search deck: {props.searchDeck} </p>
     <p>Entrances: {
-      props.entrances.map((entrance,idx) =>
+      props.entrances.map((entrance, idx) =>
         <Entrance key={idx} {...entrance} />
       )
     } </p>
-  </div>
+</Tile>
 );
 
 const Board = props => (
   <div>
-    {props.G.locations.map((cell, idx) =>
+    <Colony {...props} />
+    {props.G.locations.map((cell, location) =>
       <Location
-        key={idx}
-        click={() => props.moves.moveToLocation(idx)}
-        {...props.G.locations[idx]}
+        name={location}
+        key={location}
+        click={() => props.moves.moveToLocation(location)}
+        {...props.G.locations[location]}
       />
     )}
   </div>

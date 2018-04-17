@@ -50,7 +50,19 @@ const Locations = (ctx) => {
 };
 
 const MainGame = Game({
-  setup: ctx => ({ locations: Locations(ctx).initialSetup() }),
+  setup: ctx => ({
+    locations: Locations(ctx).initialSetup(),
+    round: 0,
+    morale: 0,
+    goal: {
+      name: 'LEAVE IT ALL',
+      victoryCondition: () => undefined,
+    },
+    crisis: {},
+    garbage: {},
+    colony: {},
+    cells: Array(9).fill(null),
+  }),
 
   moves: {
     moveToLocation(G, ctx, id) {
