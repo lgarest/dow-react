@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import { objectOf } from 'prop-types';
+
+import { Game } from 'boardgame.io/core';
+
 import Track from './numeric-track';
 import Tile from './location-tile';
 
@@ -13,5 +17,9 @@ const Colony = props => (
     <Track name="Rounds" order="asc" value={props.G.round} />
   </ColonyTile>
 );
+
+Colony.propTypes = {
+  G: objectOf(Game).isRequired,
+};
 
 export default Colony;
