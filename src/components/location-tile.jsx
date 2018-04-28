@@ -1,5 +1,7 @@
+/* 3rd party imports */
 import styled from 'styled-components';
 import { string, node } from 'prop-types';
+
 
 const LocationTileWrapper = styled.div`
   display: grid;

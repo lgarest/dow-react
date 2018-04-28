@@ -1,3 +1,4 @@
+/* 3rd party imports */
 import React from 'react';
 import { string, number } from 'prop-types';
 

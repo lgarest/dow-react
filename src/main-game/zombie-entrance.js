@@ -1,4 +1,9 @@
+/* 3rd party imports */
 import expect from 'expect';
+
+/* relative imports */
+import { pipe } from '../utils/fp';
+
 
 export const entranceStatus = {
   EMPTY: 'empty',
@@ -20,11 +25,11 @@ const barricade = entrance => ({
     : entrance.status),
 });
 
-const zombieCanEnter = location =>
-  location.status === entranceStatus.EMPTY ||
-  location.status === entranceStatus.BARRICADED;
+const zombieCanEnter = entrance =>
+  entrance.status === entranceStatus.EMPTY ||
+  entrance.status === entranceStatus.BARRICADED;
 
-const canBeBarricaded = location => location.status === entranceStatus.EMPTY;
+const canBeBarricaded = entrance => entrance.status === entranceStatus.EMPTY;
 
 const createZombieEntrance = (status = entranceStatus.EMPTY) => ({
   status,
@@ -36,20 +41,18 @@ const createZombieEntrance = (status = entranceStatus.EMPTY) => ({
 
 export default createZombieEntrance;
 
-// UTILS
-const pipetwoFunctions = (f, g) => (...args) => g(f(...args));
-const pipe = (...fns) => fns.reduce(pipetwoFunctions);
-
 
 // TESTING HELPERS
-const entranceIsEmpty = entrance =>
-  expect(entrance.status).toBe(entranceStatus.EMPTY) || entrance;
+const spotIs = (spot, status) =>
+  expect(spot.status).toBe(status) || spot;
+
+const entranceIsEmpty = entrance => spotIs(entrance, entranceStatus.EMPTY);
 
 const entranceIsBarricaded = entrance =>
-  expect(entrance.status).toBe(entranceStatus.BARRICADED) || entrance;
+  spotIs(entrance, entranceStatus.BARRICADED);
 
 const entranceHasZombie = entrance =>
-  expect(entrance.status).toBe(entranceStatus.ZOMBIE) || entrance;
+  spotIs(entrance, entranceStatus.ZOMBIE);
 
 const isTruthy = x => expect(x).toBeTruthy();
 const isFalsy = x => expect(x).toBeFalsy();
