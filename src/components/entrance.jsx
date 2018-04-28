@@ -1,5 +1,9 @@
+/* 3rd party imports */
 import { oneOf } from 'prop-types';
-import { entranceStatus } from './zombie-entrance';
+
+/* relative imports */
+import { entranceStatus } from '../main-game/zombie-entrance';
+
 
 const Entrance = ({ status }) => (
   <span>

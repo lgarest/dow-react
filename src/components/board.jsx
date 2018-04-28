@@ -1,9 +1,11 @@
+/* 3rd party imports */
 import { Game } from 'boardgame.io/core';
-
 import { objectOf } from 'prop-types';
 
+/* relative imports */
 import Colony from './colony';
 import Location from './location';
+
 
 const Board = props => (
   <div>
@@ -12,7 +14,7 @@ const Board = props => (
       <Location
         name={location}
         key={location}
-        click={() => props.moves.moveToLocation(location)}
+        click={() => props.moves.moveSurvivorToLocation(location)}
         {...props.G.locations[location]}
       />
     ))}

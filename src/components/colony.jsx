@@ -1,10 +1,12 @@
+/* 3rd party imports */
 import styled from 'styled-components';
 import { objectOf } from 'prop-types';
-
 import { Game } from 'boardgame.io/core';
 
+/* relative imports */
 import Track from './numeric-track';
 import Tile from './location-tile';
+
 
 // @todo: Change this to a proper grid layout with areas
 const ColonyTile = styled(Tile)`
