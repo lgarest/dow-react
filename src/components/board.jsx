@@ -1,17 +1,26 @@
-import React from 'react';
+import { Game } from 'boardgame.io/core';
+
+import { objectOf } from 'prop-types';
+
 import Colony from './colony';
+import Location from './location';
 
 const Board = props => (
   <div>
     <Colony {...props} />
-    <div>-------------</div>
-    <div>Police Station</div>
-    <div>Supermarket</div>
-    <div>School</div>
-    <div>Library</div>
-    <div>Gas Station</div>
-    <div>Hospital</div>
+    {props.G.locations.map((cell, location) => (
+      <Location
+        name={location}
+        key={location}
+        click={() => props.moves.moveToLocation(location)}
+        {...props.G.locations[location]}
+      />
+    ))}
   </div>
 );
+
+Board.propTypes = {
+  G: objectOf(Game).isRequired,
+};
 
 export default Board;

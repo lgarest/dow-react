@@ -4,9 +4,12 @@ import { Game } from 'boardgame.io/core';
 
 /* Relative imports */
 import Board from '../components/board';
+import Locations from '../components/locations';
+
 
 const MainGame = Game({
-  setup: () => ({
+  setup: ctx => ({
+    locations: Locations(ctx).initialSetup(),
     round: 0,
     morale: 0,
     goal: {
@@ -16,14 +19,14 @@ const MainGame = Game({
     crisis: {},
     garbage: {},
     colony: {},
-    cells: Array(9).fill(null)
+    cells: Array(9).fill(null),
   }),
 
   moves: {
-    clickCell(G, ctx, id) {
-      let cells = [...G.cells]; // don't mutate original state.
-      cells[id] = ctx.currentPlayer;
-      return { ...G, cells }; // don't mutate original state.
+    moveToLocation(G, ctx, id) {
+      const locations = [...G.locations]; // don't mutate original state.
+      locations[id].survivors = locations[id].survivors.concat(ctx.currentPlayer);
+      return { ...G, locations }; // don't mutate original state.
     },
   },
 });

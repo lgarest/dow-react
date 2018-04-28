@@ -1,0 +1,73 @@
+Mindstorm
+-	Crossroads
+	-	Conditions
+
+-	Survivors
+	-	Images
+	-	Movement (position, +risk)
+	-	Stats (leadership, combat, search, skill + conditions)
+	-	Equipment
+	-	Injuries
+	-	Attack
+-	Risk rolls
+-	Zombies
+	-	Spawning rules
+-	Colony
+-	Locations
+-	Barricadas
+-	Ruido
+-	Crisis
+-	Decks
+-	Cards in hand
+-	Cards played
+-	Tirada dados disponibles
+-	Dado disponible a gastado
+-	Fase colonia
+	-	Comida (sistema hambre)
+	-	Resolver la crisis
+	-	Vertedero
+	-	Colocar zombies
+	-	Comprobar obj principal
+	-	Mover indicador de ronda
+	-	Pasar token de jugador inicial
+-	Fase jugador
+		Gratuitas
+	-	Pedir carta a otro/s jugadore/s
+	-	Donar carta
+	-	Contribuir a la crisis
+	-	Votar para el exilio
+
+		1 dado de accion
+	-	Mover a un superviviente (riesgo o gas)
+	-	Atacar a un zombie/superviviente (riesgo o equipo)
+	-	Buscar (+ ruido)
+	-	Barricar (casilla libre)
+	-	Llamar la atencion de 2 zombies (2 casillas libres)
+	-	Vertedero
+	-
+-	Jugador inicial
+-	Turno jugador
+	-	Jugar carta
+-	Objetivo principal
+-	Objetivo secundario
+-	Traidor
+-	Objetivo exiliado
+-	Votacion exiliado
+-	Moral
+
+POC
+-	1 tablero, con un jugador, con un superviviente
+-	el superviviente es una entidad vacia
+-	el jugador puede mover a un superviviente, puede eliminar un zombie (gastando una accion (no dado, no reglas)), coger una carta
+-	moral y ronda estan definidos
+
+ADDS
+-	Crisis
+-	Eventos (crossroads)
+-	Obj secreto + traidor + exiliado
+-	Ruido
+-	Contagio
+-	Riesgo
+-	Barricadas
+-	Vertedero
+-	Obj principales con aportaciones, rolls

@@ -1,5 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
+import { objectOf } from 'prop-types';
+
+import { Game } from 'boardgame.io/core';
+
 import Track from './numeric-track';
 import Tile from './location-tile';
 
@@ -9,10 +12,14 @@ const ColonyTile = styled(Tile)`
 `;
 
 const Colony = props => (
-  <ColonyTile>
+  <ColonyTile name="The Colony">
     <Track name="Morale" order="desc" value={props.G.morale} />
     <Track name="Rounds" order="asc" value={props.G.round} />
   </ColonyTile>
 );
+
+Colony.propTypes = {
+  G: objectOf(Game).isRequired,
+};
 
 export default Colony;
